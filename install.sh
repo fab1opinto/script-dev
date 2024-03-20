@@ -1,12 +1,31 @@
 #!/bin/bash
 
+echo '##############################################'
+echo '#                                            #'
+echo '#                UPDATE                      #'
+echo '#                                            #'
+echo '##############################################'
+
 echo "atualizando os pacotes - update and upgrade..."
 sudo apt update -y && sudo apt upgrade -y
+
+echo '##############################################'
+echo '#                                            #'
+echo '#                    GIT                     #'
+echo '#                                            #'
+echo '##############################################'
 
 echo "git..."
 sudo apt install git -y
 
+echo '##############################################'
+echo '#                                            #'
+echo '#        LINGUAGENS - LANGUAGES              #'
+echo '#                                            #'
+echo '##############################################'
+
 echo "linguagens de programação - languages..."
+
 echo  "asdf node - nodejs"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -31,6 +50,7 @@ sudo apt install php-dom -y
 sudo apt install php-curl -y
 sudo apt install php8.1-sqlite3
 sudo apt install php8.1-mysql
+sudo apt install php libapache2-mod-php php-mysql -y
 
 echo "composer.."
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -41,10 +61,22 @@ php composer.phar --version
 echo "tornando o composer global"
 sudo mv composer.phar /usr/local/bin/composer 
 
-echo "lampp..."
+echo '##############################################'
+echo '#                                            #'
+echo '#                 XAMPP                      #'
+echo '#                                            #'
+echo '##############################################'
+
+echo "Xampp..."
 wget https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.0.30/xampp-linux-x64-8.0.30-0-installer.run/download
 sudo chmod +x download
 sudo ./download
+
+echo '##############################################'
+echo '#                                            #'
+echo '#                 IDEs                       #'
+echo '#                                            #'
+echo '##############################################'
 
 echo "IDE'S..."
 echo "vs code"
@@ -52,6 +84,12 @@ sudo snap install code --classic
 
 echo "pycharm..."
 sudo snap install pycharm-community --classic 
+
+echo '##############################################'
+echo '#                                            #'
+echo '#            DATABASES & SGBS                #'
+echo '#                                            #'
+echo '##############################################'
 
 echo "bancos de dados e sgbds - database and sgbds..."
 echo "dbeaver"
@@ -68,6 +106,12 @@ sudo apt install mariadb-server -y
 echo "mysql"
 sudo apt update -y
 sudo apt install mysql-server -y
+
+echo '##############################################'
+echo '#                                            #'
+echo '#                 DEVOPS                     #'
+echo '#                                            #'
+echo '##############################################'
 
 echo "devops, virtualização, monitoramento, containers e orquestração, iac | virtualization, monitoring, containers and orchestration, iac..."
 echo "vagrant"
